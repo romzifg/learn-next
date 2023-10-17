@@ -1,8 +1,13 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
-const List = () => {
+const List = ({ title, images, id }) => {
     return (
-        <div>List</div>
+        <Link className='cursor-pointer' href={`/${id}`}>
+            <Image src={images} alt="..." width={350} height={350} />
+            <h3 className='font-bold md:text-xl text-sm p-4'>{title}</h3>
+        </Link>
     )
 }
 
