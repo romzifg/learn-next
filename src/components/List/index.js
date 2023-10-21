@@ -8,7 +8,7 @@ const List = ({ api }) => {
             {
                 api.data.map((anime) => (
                     <div key={anime.mal_id} className="shadow-xl">
-                        <Link className='cursor-pointer' href={`/${anime.mal_id}`}>
+                        <Link className='cursor-pointer text-color-primary hover:text-color-accent transition-all' href={`/${anime.mal_id}`}>
                             <Image
                                 src={anime.images.webp.image_url}
                                 alt="..."
