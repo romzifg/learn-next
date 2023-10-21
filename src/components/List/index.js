@@ -2,18 +2,26 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const List = ({ title, images, id }) => {
+const List = ({ api }) => {
     return (
-        <Link className='cursor-pointer' href={`/${id}`}>
-            <Image
-                src={images}
-                alt="..."
-                width={350}
-                height={350}
-                className='w-full max-h-64 object-cover'
-            />
-            <h3 className='font-bold md:text-xl text-sm p-4'>{title}</h3>
-        </Link>
+        <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 px-4">
+            {
+                api.data.map((anime) => (
+                    <div key={anime.mal_id} className="shadow-xl">
+                        <Link className='cursor-pointer' href={`/${anime.mal_id}`}>
+                            <Image
+                                src={anime.images.webp.image_url}
+                                alt="..."
+                                width={350}
+                                height={350}
+                                className='w-full max-h-64 object-cover'
+                            />
+                            <h3 className='font-bold md:text-xl text-sm p-4'>{anime.title}</h3>
+                        </Link>
+                    </div>
+                ))
+            }
+        </div>
     )
 }
 
